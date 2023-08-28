@@ -1,6 +1,6 @@
-import React, { FormEvent, useState } from 'react';
+import React, { FC, FormEvent, useState } from 'react';
 
-function Login() {
+const Login: FC = () => {
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
 
@@ -33,6 +33,6 @@ function Login() {
       </form>
     </div>
   );
-}
+};
 
 export default Login;
