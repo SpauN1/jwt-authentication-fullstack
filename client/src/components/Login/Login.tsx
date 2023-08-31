@@ -1,11 +1,18 @@
 import React, { FC, FormEvent, useState } from 'react';
 
+import { useAppDispatch } from '../../store';
+import { loginUser } from '../../store/auth/actionCreators';
+
 const Login: FC = () => {
+  const dispatch = useAppDispatch();
+
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+
+    dispatch(loginUser({ login, password }));
   };
 
   return (
