@@ -30,3 +30,5 @@ authRouter.post('/login', (req, res) => {
   );
   res.send({ accessToken });
 });
+
+module.exports = authRouter;
