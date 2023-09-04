@@ -23,7 +23,6 @@ const App: FC = () => {
       <Header />
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/dashboard" element={<Dashboard />} />
         <Route
           path="/dashboard"
           element={isLoggedIn ? <Dashboard /> : <Navigate to="/" />}
