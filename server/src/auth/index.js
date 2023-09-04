@@ -31,16 +31,19 @@ authRouter.post('/login', (req, res) => {
   res.send({ accessToken });
 });
 
-authRouter.get("/logout", (req, res) => {
+authRouter.get('/profile', (req, res) => {
+  res.send('admin');
+});
+
+authRouter.get('/logout', (req, res) => {
   res.setHeader(
-    "Set-Cookie",
-    cookie.serialize("refreshToken", "", {
+    'Set-Cookie',
+    cookie.serialize('refreshToken', '', {
       httpOnly: true,
       maxAge: 0,
     })
   );
   res.sendStatus(200);
 });
-
 
 module.exports = authRouter;
