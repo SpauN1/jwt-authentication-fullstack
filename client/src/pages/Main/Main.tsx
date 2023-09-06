@@ -8,13 +8,17 @@ import Login from '../../components/Login/Login';
 const Main: FC = () => {
   const dispatch = useAppDispatch();
 
+  const profile = useSelector(
+    (state: IRootState) => state.auth.profileData.profile
+  );
+
   const isLoggedIn = useSelector(
     (state: IRootState) => !!state.auth.authData.accessToken
   );
 
   const renderProfile = () => (
     <div>
-      <div>Вы успушно авторизовались</div>
+      <div>Вы успушно авторизовались {profile}</div>
       <button onClick={() => dispatch(logoutUser())}>Logout</button>
     </div>
   );
