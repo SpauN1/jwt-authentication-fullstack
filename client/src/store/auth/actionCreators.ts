@@ -12,6 +12,7 @@ import {
   loginSuccess,
   logoutSuccess,
 } from './authReducer';
+import { store } from '..';
 
 export const loginUser =
   (data: ILoginRequest) =>
@@ -57,5 +58,19 @@ export const getProfile =
       console.error(e);
 
       dispatch(loadProfileFailure(e.message));
+    }
+  };
+
+export const getAccessToken =
+  () =>
+  (dispatch: Dispatch<any>): string | null => {
+    try {
+      const accessToken = store.getState().auth.authData.accessToken;
+
+      return accessToken;
+    } catch (e) {
+      console.error(e);
+
+      return null;
     }
   };
