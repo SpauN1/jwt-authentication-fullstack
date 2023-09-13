@@ -11,3 +11,6 @@ export const logout = (): AxiosPromise =>
 
 export const getProfile = (): AxiosPromise<string> =>
   axiosInstance.get(Endpoints.AUTH.PROFILE);
+
+export const refreshToken = (): AxiosPromise<ILoginResponse> =>
+  axiosInstance.get(Endpoints.AUTH.REFRESH);
